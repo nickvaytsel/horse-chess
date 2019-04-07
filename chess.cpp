@@ -151,7 +151,7 @@ int pawn(int boardP[8][8], int i, int j, char color) {
 		if (i + 1 < 8) {
 			if (boardP[i + 1][j + 1] == 3) return 1;
 		}
-		if (i - 1 < 8) {
+		if (i - 1 >= 0) {
 			if (boardP[i - 1][j + 1] == 3) return 1;
 		}
 	}
@@ -175,7 +175,7 @@ int rook(int boardP[8][8], int i, int j) {
 	while (l < 8) {
 		if (boardP[l][j] == 3) return 1;
 		if (boardP[l][j] == 2 || boardP[l][j] == -1) break;
-		k++;
+		l++;
 	}
 	return 0;
 }
