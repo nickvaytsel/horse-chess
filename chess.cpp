@@ -26,6 +26,25 @@ int scanFigure(FILE * file, char boardF[8][8][2]) {
 	if (dataF[1] == 'P')
 		if (xy[1] == 0 || xy[1] == 7) { _getch(); return -5; }
 	if (boardF[xy[0]][xy[1]][0] != 'N') {/* printf("error15"); _getch();*/ return -3; }
+	if (dataF[1] == 'K') {
+		for (int k = xy[0] - 1; k < xy[0] + 2; k++) {
+			if (k < 0) {
+				k++;
+			}
+			if (k > 7) {
+				break;
+			}
+			for (int l = xy[1] - 1; l < xy[1] + 2; l++) {
+				if (l < 0) {
+					l++;
+				}
+				if (l > 7) {
+					break;
+				}
+				if (boardF[k][l][1] == 'K' && boardF[k][l][0] != dataF[0]) return -4;
+			}
+		}
+	}
 	boardF[xy[0]][xy[1]][0] = dataF[0];
 	boardF[xy[0]][xy[1]][1] = dataF[1];
 	if (dataF[1] == 'K') {
