@@ -83,46 +83,22 @@ int main() {
 		_getch();
 		return 0;
 	}
-	//printf("\n");
 	if (boardWithFigures[move[1][0]][move[1][1]][0] == dataF[0]) {
 		printf("You can't walk on square with your figure");
 		_getch();
 		return 0;
 	}
-	/*for (int i = 7; i >= 0; i--) {
-		for (int j = 0; j < 8; j++) {
-			for (int k = 0; k < 2; k++) {
-				printf("%c", boardWithFigures[j][i][k]);
-			}
-			printf(" ");
-		}
-		printf("\n");
-	}*/
 	boardWithFigures[move[1][0]][move[1][1]][0] = dataF[0];
 	boardWithFigures[move[1][0]][move[1][1]][1] = 'H';
 	boardWithFigures[move[0][0]][move[0][1]][0] = 'N';
 	boardWithFigures[move[0][0]][move[0][1]][1] = 'N';
-	/*for (int i = 7; i >= 0; i--) {
-		for (int j = 0; j < 8; j++) {
-			for (int k = 0; k < 2; k++) {
-				printf("%c", boardWithFigures[j][i][k]);
-			}
-			printf(" ");
-		}
-		printf("\n");
-	}*/
 	ColorFigures(boardWithFigures, boardOfPossibility, dataF[0]);
+
 	if (attackedKing(boardWithFigures, boardOfPossibility, dataF[0])) {
 		printf("Your king will be under attack, after this turn");
 	}
 	else {
 		printf("You can do this turn");
 	}
-	/*for (int i = 7; i >= 0; i--) {
-		for (int j = 0; j < 8; j++) {
-			printf("%i ", boardOfPossibility[j][i]);
-		}
-		printf("\n");
-	}*/
 	_getch();
 }
